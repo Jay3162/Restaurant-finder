@@ -1,0 +1,30 @@
+.html, body{
+    margin: 0;
+    padding: 0;
+}
+
+.background1 {
+    box-sizing: border-box;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+.container{
+    background-image: url('./images/pexels.jpg');
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.rectangle{
+    position: absolute;
+    background-color: aqua;
+    width: 100%;
+    top: 0px;
+}
