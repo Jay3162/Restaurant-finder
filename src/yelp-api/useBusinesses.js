@@ -10,10 +10,18 @@ export function BusinessSearch(term, location) {
     // const apiKey = Config.YOUR_API_KEY
     useEffect(() => {
         setBusinesses([]);
-        console.log(setBusinesses)
+        
         const fetchData = async() => {
             try{
                 const rawData = await fetch('https://yelp-backend.netlify.app/.netlify/functions/search?location='+`${location}`+'&term='+`${term}`)
+                // const rawData = await fetch('https://api.yelp.com/v3/businesses/search?term='+`${term}`+`&${location}`, {
+                //     headers: {
+                //         Authorization: 'Bearer ' + process.env.REACT_APP_YOUR_API_KEY,
+                //         Origin: 'https://api.yelp.com',
+                //         'Access-Control-Allow-Origin': '*',
+                //         withCreditials: true
+                //     }
+                // })
                 console.log(rawData)
                 const resp = await rawData.json();
                 setBusinesses(resp.businesses)

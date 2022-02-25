@@ -5,10 +5,12 @@ import style from './map.module.css'
 
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
+
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_API_KEY;
 
 export function Map(props) {
 
+    const [dataLoaded, setDataLoaded] = useState(false);
     const mapContainer = useRef(null);
     const map = useRef(null);
     const [lng, setLng] = useState(0);
@@ -16,14 +18,16 @@ export function Map(props) {
     const [zoom, setZoom] = useState(9);
 
 
+    
 
       const coords = async () => {
-        // confirm that data is loaded
+        // confirm that json data is loaded
         await props
         if (props.businesses && props.businesses.length > 0) {
           await props.businesses.coordinates
           console.log(props.businesses[0].coordinates.longitude)
 
+          setDataLoaded(true);
           // convert data to geojson
 
           let json = {
@@ -90,13 +94,19 @@ export function Map(props) {
             })
           }
 
+        
 
           Map.current.on("mouseenter", "my-layer", e => {
             Map.current.getCanvas().style.cursor = "pointer";
           })
 
           Map.current.on("click", "my-layer", e => {
-            // shows elements from geojson when user clicks icon
+
+            
+            // do something when user clicks on marker
+            let images = new URL('./images/star.png', import.meta.url)
+
+
             var coordinates = e.features[0].geometry.coordinates.slice();
             var id = e.features[0].properties.id;
             var html =  '<b>' + '<h2>' + e.features[0].properties.name + '</h2>' + '</b>' + '<p>' + e.features[0].properties.address + '</p>' + '<p>' + 'Avg review score: ' + '<b>' + e.features[0].properties.rating + '/5' + '</b>' + '</p>' 
@@ -120,6 +130,7 @@ export function Map(props) {
 
       coords()
       useEffect(() => {
+        // if (map.current) return; // initialize map only once
         Map.current = new mapboxgl.Map({
           container: mapContainer.current,
           style: 'mapbox://styles/mapbox/streets-v11',
