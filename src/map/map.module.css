@@ -3,7 +3,7 @@
 .map-container {
     position: absolute;
     height: 965px;
-    display: block;
+    display: flex;
     top: 0px;
     bottom: 0px;
     padding: 0px;
@@ -17,3 +17,37 @@
     cursor: pointer;
     background-repeat: no-repeat;
 }
+
+.star {
+    height: 5px;
+    width: 5px;
+}
+
+.bar {
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    background-color: aqua;
+    height: 10%;
+    top: 1px;
+}
+
+.location-btn{
+    position: absolute;
+    top: 80vh;
+    background-color: rgb(43, 255, 0);
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    border-style: none;
+    color: white;
+    left: 80vw;
+    
+}
+
+.location-btn:hover{
+    background-color: rgb(51, 255, 0);
+    cursor: pointer;
+}
+
+
