@@ -91,7 +91,8 @@ export function Map(props) {
               })
             })
           }
-          let markerImg = new URL('./images/blueMarker.png', import.meta.url)
+          // let markerImg = new URL('./images/blueMarker.png', import.meta.url)
+          let markerImg = require('./images/blueMarker.png')
           // check that current layer is not in effect then define and load new data on new symbol layer
           if (!Map.current.getLayer('my-layer')) {
             Map.current.on('load', () => {
