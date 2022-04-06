@@ -6,7 +6,6 @@ import style from './map.module.css'
 // import ReactDOM from 'react-dom'
 
 import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-import { SearchBar } from '../searchBar/searchBar';
 
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_API_KEY;

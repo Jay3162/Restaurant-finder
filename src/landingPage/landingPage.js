@@ -1,5 +1,5 @@
 import React from 'react'
-import { SearchBar } from '../searchBar/searchBar'
+import { SearchBar } from '../searchBar/searchBar.js'
 import style from './landingPage.module.css'
 import useReactRouter from 'use-react-router'
 
@@ -7,7 +7,7 @@ import useReactRouter from 'use-react-router'
 
 
 export function LandingPage() {
-    const bckgndImg = new URL('./images/pexels.jpg', import.meta.url)
+    // const bckgndImg = new URL('./images/pexels.jpg', import.meta.url)
     
     const {history} = useReactRouter()
     function Search(term, location) {
@@ -19,14 +19,12 @@ export function LandingPage() {
         history.push(`/search?location=${location}&term=${term}`)
 
     }
-
-
-
-
+    
     return (
         <div>
             
-            <img className={style["background1"]} src={bckgndImg}></img>,
+            {/* <img className={style["background1"]} src={bckgndImg}></img>, */}
+            <img className={style["background1"]}></img>,
             <SearchBar search={Search}/>
             <div className={style["rectangle"]}></div>
         </div>

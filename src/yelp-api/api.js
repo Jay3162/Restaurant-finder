@@ -1,4 +1,4 @@
-import { API_URL_BASE } from './config'
+import { API_URL_BASE } from './config.js'
 import queryString from 'query-string'
 
 export function get(path, queryParams) {

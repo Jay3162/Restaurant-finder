@@ -1,7 +1,7 @@
 import { React } from "react";
-import { BusinessSearch } from "../yelp-api/useBusinesses";
+import { BusinessSearch } from "../yelp-api/useBusinesses.js";
 import UseReactRouter from 'use-react-router'
-import { Map } from '../map/map'
+import { Map } from '../map/map.js'
 
 
 

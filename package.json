@@ -1,7 +1,7 @@
-{
-  "name": "restaurant-finder",
+{ "name": "restaurant-finder",
   "version": "0.1.0",
   "private": true,
+  
   
   "dependencies": {
     "@alpaca-travel/react-maki-icons": "^2.2.1",
