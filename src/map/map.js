@@ -18,11 +18,11 @@ export function Map(props) {
     const [dataLoaded, setDataLoaded] = useState(false);
     const mapContainer = useRef(null);
     const map = useRef(null);
-    const [lng, setLng] = useState(0);
-    const [lat, setLat] = useState(51);
+    const [lng, setLng] = useState(-0.5);
+    const [lat, setLat] = useState(51.2);
     const [zoom, setZoom] = useState(9);
-    const [newLng, setNewLng] = useState()
-    const [newLat, setNewLat] = useState()
+    const [newLng, setNewLng] = useState(40.740121)
+    const [newLat, setNewLat] = useState(-73.990593)
   
 
     // onClick function will take the lat and lng coordinates the first search result and move the user's view to that the coordinate's location at a slightly higher zoom level
@@ -35,7 +35,7 @@ export function Map(props) {
         setNewLat(props.businesses[0].coordinates.latitude)
         
         
-        const lngLat = [newLng, newLat]
+        let lngLat = [newLng, newLat]
         Map.current.jumpTo({
           'center': lngLat,
           'zoom': 12
@@ -81,6 +81,7 @@ export function Map(props) {
               geometry: {
                 type: "Point",
                 coordinates: [poi.coordinates.longitude, poi.coordinates.latitude]
+                
               }
             });
           });
@@ -164,9 +165,12 @@ export function Map(props) {
           
         });
 
-      },[]);
+
+
+      },[props]);
 
       return (
+        
         <div>
 
           <div ref={mapContainer} className={style["map-container"]} />
