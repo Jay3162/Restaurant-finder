@@ -3,9 +3,11 @@ import {FiLoader} from 'react-icons/fi'
 import React, { useRef, useEffect, useState, createRef } from 'react';
 import style from './map.module.css'
 
-// import ReactDOM from 'react-dom'
 
-import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+
+import mapboxgl from 'mapbox-gl'
+
+// mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_API_KEY;
@@ -24,16 +26,16 @@ export function Map(props) {
   
 
     // onClick function will take the lat and lng coordinates the first search result and move the user's view to that the coordinate's location at a slightly higher zoom level
-    const goToLocation = async() => {
+    const goToLocation = async(e) => {
       await props.businesses
       if (props.businesses) {
+        e.preventDefault()
         Map.current.panTo([props.businesses[0].coordinates.longitude, props.businesses[0].coordinates.latitude])
         setNewLng(props.businesses[0].coordinates.longitude)
         setNewLat(props.businesses[0].coordinates.latitude)
         
         
         const lngLat = [newLng, newLat]
-        console.log(lngLat)
         Map.current.jumpTo({
           'center': lngLat,
           'zoom': 12
@@ -42,6 +44,7 @@ export function Map(props) {
       }
       if (!Map.current.getSource('my-locations')) {
         window.location.reload()
+
       }
 
     }

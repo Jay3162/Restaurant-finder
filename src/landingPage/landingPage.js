@@ -7,23 +7,17 @@ import useReactRouter from 'use-react-router'
 
 
 export function LandingPage() {
-    // const bckgndImg = new URL('./images/pexels.jpg', import.meta.url)
-    
+    // Change term and location should it contain spaces so that the url works and the user can search for restaurants in places like new york
     const {history} = useReactRouter()
     function Search(term, location) {
         const encodedTerm = encodeURI(term)
         const encodedLocation = encodeURI(location)
-        console.log(encodedTerm)
-        console.log(encodedLocation)
-        console.log(`/search?location=${location}&term=${term}`)
-        history.push(`/search?location=${location}&term=${term}`)
+        history.push(`/search?location=${encodedLocation}&term=${encodedTerm}`)
 
     }
     
     return (
         <div>
-            
-            {/* <img className={style["background1"]} src={bckgndImg}></img>, */}
             <img className={style["background1"]}></img>,
             <SearchBar search={Search}/>
             <div className={style["rectangle"]}></div>
