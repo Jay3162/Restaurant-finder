@@ -6,7 +6,6 @@ import { Map } from './map/map.js'
 import { Search } from './search/search.js'
 
 
-
 function App() {
   return (
     <BrowserRouter>

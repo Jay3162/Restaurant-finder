@@ -18,8 +18,13 @@ export function LandingPage() {
     
     return (
         <div>
-            <img className={style["background1"]}></img>,
-            <SearchBar search={Search}/>
+            <div className={style["background1"]}>
+                <div className={style["wrapper"]}>
+                    <SearchBar search={Search}/>
+                </div>
+                
+            </div>
+            
             <div className={style["rectangle"]}></div>
         </div>
 

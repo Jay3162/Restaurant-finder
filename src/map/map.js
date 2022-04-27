@@ -95,7 +95,6 @@ export function Map(props) {
               })
             })
           }
-          // let markerImg = new URL('./images/blueMarker.png', import.meta.url)
           let markerImg = require('./images/blueMarker.png')
           // check that current layer is not in effect then define and load new data on new symbol layer
           if (!Map.current.getLayer('my-layer')) {
@@ -173,7 +172,7 @@ export function Map(props) {
         
         <div>
 
-          <div ref={mapContainer} className={style["map-container"]} />
+          <div ref={mapContainer} data-testid="mapboxMap" className={style["map-container"]} />
           {!dataLoaded ? <button className={style["location-btn"]}><FiLoader/></button> : <button className={style["location-btn"]} onClick={goToLocation}><FaMapMarkerAlt/></button>} 
         </div>
       );
