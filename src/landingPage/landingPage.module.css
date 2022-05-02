@@ -26,10 +26,5 @@
     top: 0px;
 }
 
-@media (max-height: 700px) {
-    .background1{
-        width: 100vw;
-        height: 100vh;
-    }
-}
+
 
